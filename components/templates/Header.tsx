@@ -1,12 +1,10 @@
-import Head from "next/head";
-import { ReactNode } from "react"
 import TopNavbar from "./TopNavbar";
 
 interface HeaderProps {
-    children: ReactNode;
+
 }
 
-const Header = ({children}: HeaderProps) => {
+const Header = ({}:HeaderProps) => {
 
     return <>
         <TopNavbar></TopNavbar>

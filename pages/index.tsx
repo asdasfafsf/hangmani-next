@@ -1,13 +1,18 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
 import styled from '@emotion/styled'
+import GridMain from '@/components/templates/GridMain'
+import { useEffect, useState } from 'react'
 
-const Layout = styled.div`
-  background-color: pink;
-`
+
 
 export default function Home() {
+  const [text, setText] = useState<string>('헬로');
+
+  useEffect(() => {
+    setText('머함?')
+    console.log(text)
+  }, [])
+
   return (
     <>
       <Head>
@@ -16,7 +21,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
- 
+      <GridMain />
+      {text}
+      야 왜 이거 안나와?
     </>
   )
 }

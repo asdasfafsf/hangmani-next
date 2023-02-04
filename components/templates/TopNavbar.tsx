@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import Head from "next/head";
 import { ReactNode } from "react"
 import Logo from "../atoms/Logo";
 import TopView from "./TopView";
@@ -9,7 +8,7 @@ interface TopNavBar {
 }
 
 const NavWrap = styled.div`
-    
+
 `
 
 const Nav = styled.nav`

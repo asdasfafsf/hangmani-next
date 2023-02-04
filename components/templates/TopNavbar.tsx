@@ -46,16 +46,6 @@ const TopNavBar = ({}: TopNavBar) => {
     // const { header } = useHeader();
     const { header } = useLayout()
 
-    useEffect(() => {
-        window.onscroll = () =>  console.log(`나는 navbar에서 찍어 : ${header}`)
-       
-    }, [])
-
-    useEffect(() => {
-        window.onscroll = () =>  console.log(`나는 navbar에서 찍어 근데 헤더가 바뀌면 계속찍어 : ${header}`)
-       
-    }, [header])
-
     return (<NavWrap>
             <Nav isMerge={header}>
                 <Logo />

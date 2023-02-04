@@ -11,7 +11,7 @@ const GridMain = () => {
     return (<GridWrapper>
         {
             Array.from({length : 30}, () => 1)
-                .map(elem => <Card />)
+                .map(() => <Card />)
         }
 
 

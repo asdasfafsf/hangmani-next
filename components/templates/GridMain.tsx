@@ -20,7 +20,7 @@ const GridMain = () => {
     return (<GridWrapper>
         {
             Array.from({length : 30}, () => 1)
-                .map(() => <Card />)
+                .map((elem) => <Card key={elem + Math.random()}/>)
         }
 
 

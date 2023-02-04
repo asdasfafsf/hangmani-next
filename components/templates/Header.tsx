@@ -9,7 +9,7 @@ interface HeaderProps {
 const Header = ({children}: HeaderProps) => {
 
     return <>
-        <TopNavbar children={children}></TopNavbar>
+        <TopNavbar></TopNavbar>
     </>
 }
 

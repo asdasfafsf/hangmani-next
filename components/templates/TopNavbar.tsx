@@ -1,8 +1,6 @@
-import useHeader from "@/hooks/useHeader";
 import useLayout from "@/hooks/useLayout";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { ReactNode, useEffect } from "react"
 import Logo from "../atoms/Logo";
 import TopView from "./TopView";
 
@@ -43,7 +41,6 @@ const Li = styled.li`
 `
 
 const TopNavBar = ({}: TopNavBar) => {
-    // const { header } = useHeader();
     const { header } = useLayout()
 
     return (<NavWrap>

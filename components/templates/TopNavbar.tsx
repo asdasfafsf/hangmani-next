@@ -101,22 +101,25 @@ const TopNavBar = ({}: TopNavBar) => {
     const { header } = useLayout()
 
     return (<NavWrap>
-            <Nav isMerge={header}>
-                <FlexDivLeft>
-                    <LogoWrapper>
-                        <Logo />
-                    </LogoWrapper>
-                    <Ul>
-                        <NoticeLi><Link href={"#"}>공지사항</Link></NoticeLi>
-                    </Ul>
-                </FlexDivLeft>
-                <FlexDivRight>
-                    <Ul>
-                        <Li><Link href={"#"}>로그인</Link></Li>
-                        <Li><Link href={"#"}>회원가입</Link></Li>
-                    </Ul>
-                </FlexDivRight>
-            </Nav>
+
+            {!header &&
+                <Nav isMerge={header}>
+                    <FlexDivLeft>
+                        <LogoWrapper>
+                            <Logo />
+                        </LogoWrapper>
+                        <Ul>
+                            <NoticeLi><Link href={"#"}>공지사항</Link></NoticeLi>
+                        </Ul>
+                    </FlexDivLeft>
+                    <FlexDivRight>
+                        <Ul>
+                            <Li><Link href={"#"}>로그인</Link></Li>
+                            <Li><Link href={"#"}>회원가입</Link></Li>
+                        </Ul>
+                    </FlexDivRight>
+                </Nav>
+            }
             <TopView />
         </NavWrap>)
 }

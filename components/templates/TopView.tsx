@@ -8,11 +8,23 @@ import Button from "../atoms/Button";
 
 import LocationIcon from 'public/svgs/icon_location.svg';
 import SearchIcon from 'public/svgs/icon_search.svg'
+import useLayout from "@/hooks/useLayout";
+import { css } from "@emotion/react";
+import Logo from "../atoms/Logo";
+
+
+
+
+const ViewerWrapperStyle = (props:{header: boolean}) => css`
+    position: ${!props.header ? 'relative' : 'fixed'};
+    top: ${!props.header ? '100px' : '0px'};
+    height: ${!props.header ? '560px' : '100px'};
+
+    /* transition: 0.01s; */
+`
 
 const ViewerWrapper = styled.div`
-    position: relative;
-    top: 100px;
-    height: 560px;
+    ${ViewerWrapperStyle}
     width: 100%;
 `
 
@@ -49,10 +61,6 @@ const FlexBox = styled.div`
 `
 
 const AreaWrapper = styled.div`
-    /* position: absolute; */
-    /* width: 425px;
-    height: 80px;
-    top: 295px;  */
     margin: auto;
 `
 
@@ -96,9 +104,11 @@ const ButtonArea = styled.div`
 
 
 const TopView = () => {
+    const { header } = useLayout();
+
     const addr = `경기 성남시 분당구 야탑동`
     return (
-        <ViewerWrapper>
+        <ViewerWrapper header={header}>
             <BackgroundMap>
                 <Image 
                     src={MapImagePNG}
@@ -109,12 +119,16 @@ const TopView = () => {
             <ForeGroundWrapper>
                 <FlexBox>
                     <AreaWrapper>
-                        <ForYouWrapper>
-                            <ForYou>당신을 위한</ForYou>
-                        </ForYouWrapper>
-                        <ForYouWrapper>
-                            <Addr>{addr} 복권 맛집</Addr>
-                        </ForYouWrapper>
+                        {!header &&
+                            <>
+                            <ForYouWrapper>
+                                <ForYou>당신을 위한</ForYou>
+                            </ForYouWrapper>
+                            <ForYouWrapper>
+                                <Addr>{addr} 복권 맛집</Addr>
+                            </ForYouWrapper>
+                            </>
+                        }
                         <ButtonArea>
                             <Button 
                                 // icon={LocationIcon}

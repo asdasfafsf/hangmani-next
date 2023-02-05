@@ -10,21 +10,14 @@ import LocationIcon from 'public/svgs/icon_location.svg';
 import SearchIcon from 'public/svgs/icon_search.svg'
 import useLayout from "@/hooks/useLayout";
 import { css } from "@emotion/react";
-import Logo from "../atoms/Logo";
 
-
-
-
-const ViewerWrapperStyle = (props:{header: boolean}) => css`
-    position: ${!props.header ? 'relative' : 'fixed'};
-    top: ${!props.header ? '100px' : '0px'};
-    height: ${!props.header ? '560px' : '100px'};
-
-    /* transition: 0.01s; */
-`
 
 const ViewerWrapper = styled.div`
-    ${ViewerWrapperStyle}
+    position: relative;
+    top: 100px;
+    height: 560px;
+    justify-content: center;
+    min-width: 1000px;
     width: 100%;
 `
 
@@ -43,8 +36,6 @@ const BackgroundMap = styled.div`
         object-fit: cover;
     }
 `
-
-
 
 const ForeGroundWrapper = styled.div`
     position: absolute;
@@ -68,7 +59,6 @@ const ForYouWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100vw;
 `
 
 const ForYou = styled.p`
@@ -94,11 +84,25 @@ const Addr = styled.p`
     margin: 0px;
 `
 
+const LottoP = styled.p`
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 43px;
+    letter-spacing: -0.05em;
+
+    color: #FFFFFF;
+    margin: 0px;
+`
+
+
+
 const ButtonArea = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100px;
+    gap:20px;
 `
 
 
@@ -108,7 +112,7 @@ const TopView = () => {
 
     const addr = `경기 성남시 분당구 야탑동`
     return (
-        <ViewerWrapper header={header}>
+        <ViewerWrapper>
             <BackgroundMap>
                 <Image 
                     src={MapImagePNG}
@@ -119,16 +123,16 @@ const TopView = () => {
             <ForeGroundWrapper>
                 <FlexBox>
                     <AreaWrapper>
-                        {!header &&
-                            <>
+
                             <ForYouWrapper>
-                                <ForYou>당신을 위한</ForYou>
+                                <ForYou>&nbsp;당신을 위한&nbsp;</ForYou>
                             </ForYouWrapper>
                             <ForYouWrapper>
-                                <Addr>{addr} 복권 맛집</Addr>
+                                <Addr>{addr} </Addr>
+                                &nbsp;
+                                <LottoP>복권 맛집</LottoP>
                             </ForYouWrapper>
-                            </>
-                        }
+                  
                         <ButtonArea>
                             <Button 
                                 // icon={LocationIcon}
@@ -142,6 +146,8 @@ const TopView = () => {
                                 textColor="white"
                                 color="#2AB5BE"
                                 IconComponent={LocationIcon}
+                                // width={header ? '162px' : '190px'}
+                                // height={header ? '39px' : undefined}
                             />
                         </ButtonArea>
                     </AreaWrapper>

@@ -29,13 +29,9 @@ const dynamicButtonStyle = (props:ButtonProps) => css`
 const ButtonWrapper = styled.button<ButtonProps>`
     ${dynamicButtonStyle}
     display: flex;
-    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
-    padding: 12px 32px;
     gap: 10px;
-    margin: 8px;
-
     border-radius: 40px;
     border: 0;
     outline: none;

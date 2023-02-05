@@ -5,6 +5,8 @@ import Logo from "../atoms/Logo";
 import TopView from "./TopView";
 import Link from "next/link";
 
+
+
 interface TopNavBar {
    
 }
@@ -16,7 +18,7 @@ interface NavProps {
 
 const NavWrap = styled.div`
     min-width: 1000px;
-    /* width: 100%; */
+    width: 100%;
     height: 700px;
 `
 

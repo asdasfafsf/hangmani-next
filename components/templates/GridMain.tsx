@@ -3,8 +3,8 @@ import Card from "../atoms/Card";
 
 const GridWrapper = styled.div`
     display: grid;
-    width: 100vw;
-    /* width: 100%; */
+    /* width: 100vw; */
+    width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(288px, auto));
     padding: 10px;
     row-gap: 10px;

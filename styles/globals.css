@@ -5,4 +5,14 @@ html {
 body {
     margin: 0px;
     padding: 0px;
+    min-width: 1000px;
+}
+
+#__next {
+    position: relative;
+    min-width: 1000px;
+}
+
+* {
+    font-family: 'Noto Sans KR';
 }

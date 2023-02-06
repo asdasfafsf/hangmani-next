@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import Logo from "../atoms/Logo";
 import TopView from "./TopView";
 import Link from "next/link";
+import TopViewHeader from "./TopViewHeader";
 
 
 
@@ -17,7 +18,7 @@ interface NavProps {
 
 
 const NavWrap = styled.div`
-    min-width: 1000px;
+    min-width: 1070px;
     width: 100%;
     height: 700px;
 `
@@ -33,7 +34,7 @@ const dynamicNavStyle = (props:NavProps) => css`
 `
 const Nav = styled.nav<NavProps>`
     ${dynamicNavStyle}
-    min-width: 1000px;
+    min-width: 1070px;
     width: 100%;
     height: 100px;
     margin: 0px;
@@ -92,6 +93,10 @@ const NoticeLi = styled.li`
         color: #FF7044;
         /* letter-spacing: -0.05em; */
     }
+
+    :hover {
+        text-decoration: underline;
+    }
 `
 
 
@@ -120,7 +125,11 @@ const TopNavBar = ({}: TopNavBar) => {
                     </FlexDivRight>
                 </Nav>
             }
-            <TopView />
+            {!header 
+                ? <TopView />
+                : <TopViewHeader />    
+            }
+            
         </NavWrap>)
 }
 

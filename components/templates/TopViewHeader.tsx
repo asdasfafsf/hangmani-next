@@ -10,15 +10,26 @@ import LocationIcon from 'public/svgs/icon_location.svg';
 import SearchIcon from 'public/svgs/icon_search.svg'
 import useLayout from "@/hooks/useLayout";
 import Logo from "../atoms/Logo";
+import { css } from "@emotion/react";
+import { useEffect, useState } from "react";
 
+
+interface ViewerWrapperProps {
+    isRender: boolean;
+}
+
+const DynamicViewerWrapper = (props:ViewerWrapperProps) => css`
+    opacity: ${(props.isRender ? 1 : 0)};
+`
 
 const ViewerWrapper = styled.div`
+    ${DynamicViewerWrapper}
     position: fixed;
     height: 100px;
     justify-content: center;
     min-width: 1070px;
     width: 100%;
-    transition: 0.15s;
+    transition: 0.2s;
 `
 
 const LoggoWrapper = styled.div`
@@ -120,10 +131,15 @@ const ButtonArea = styled.div`
 
 const TopViewHeader = () => {
     const { header } = useLayout();
+    const [isRender, setRender] = useState(false);
+
+    useEffect(() => {
+        setRender(true)
+    }, [])
 
     const addr = `경기 성남시 분당구 야탑동`
     return (
-        <ViewerWrapper>
+        <ViewerWrapper isRender={isRender}>
             <BackgroundMap>
                 <Image 
                     src={MapImagePNG}

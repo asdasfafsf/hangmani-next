@@ -33,7 +33,7 @@ const ViewerWrapper = styled.div`
 `
 
 const LoggoWrapper = styled.div`
-    width: 180px;
+    width: 210px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,10 +72,11 @@ const FlexBox = styled.div`
     justify-content: start;
     align-items: center;
     height: 100%;
+    width: 100%;
 `
 
 const ContentArea = styled.div`
-    width: 100vw;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;

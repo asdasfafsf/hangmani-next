@@ -17,7 +17,7 @@ const ViewerWrapper = styled.div`
     top: 100px;
     height: 560px;
     justify-content: center;
-    min-width: 1000px;
+    min-width: 1070px;
     width: 100%;
 `
 

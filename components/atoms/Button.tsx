@@ -35,7 +35,6 @@ const ButtonWrapper = styled.button<ButtonProps>`
     border-radius: 40px;
     border: 0;
     outline: none;
-    
     cursor: pointer;
 
 `

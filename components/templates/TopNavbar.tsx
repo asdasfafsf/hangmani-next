@@ -71,6 +71,7 @@ const Ul = styled.ul`
     height: 100%;
     align-items: center;
     justify-content: center;
+    width: 100%;
 
     a {
         color: black;
@@ -104,8 +105,9 @@ const NoticeLi = styled.li`
 
 
 const TopNavBar = ({}: TopNavBar) => {
-    const { header } = useLayout()
-
+    const { header } = useLayout();
+    
+    
     return (<NavWrap>
 
             {!header &&

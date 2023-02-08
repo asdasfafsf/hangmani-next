@@ -3,6 +3,14 @@ import styled from '@emotion/styled'
 import GridMain from '@/components/templates/GridMain'
 
 
+const Section = styled.section`
+  
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
 
 export default function Home() {
 
@@ -14,7 +22,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <GridMain />
+      <Section>
+        <GridMain />
+      </Section>
     </>
   )
 }

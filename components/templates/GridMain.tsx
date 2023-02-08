@@ -5,18 +5,18 @@ const GridWrapper = styled.div`
     display: grid;
     /* width: 100vw; */
     width: 100%;
+    min-width: 1070px;
+    max-width: 1200px;
     grid-template-columns: repeat(auto-fit, minmax(288px, auto));
-    padding: 10px;
-    row-gap: 10px;
+    /* padding: 5px; */
+    row-gap: 30px;
     column-gap: 10px;
     box-sizing: border-box;
-    overflow-x: hidden;
     align-items: center;
     justify-items: center;
 `
 
 const GridMain = () => {
-
     return (<GridWrapper>
         {
             Array.from({length : 30}, () => 1)

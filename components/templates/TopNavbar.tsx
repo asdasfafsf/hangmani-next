@@ -21,6 +21,7 @@ const NavWrap = styled.div`
     min-width: 1070px;
     width: 100%;
     height: 700px;
+    z-index: 5;
 `
 
 const LogoWrapper = styled.div`
@@ -70,6 +71,7 @@ const Ul = styled.ul`
     height: 100%;
     align-items: center;
     justify-content: center;
+    width: 100%;
 
     a {
         color: black;
@@ -103,8 +105,9 @@ const NoticeLi = styled.li`
 
 
 const TopNavBar = ({}: TopNavBar) => {
-    const { header } = useLayout()
-
+    const { header } = useLayout();
+    
+    
     return (<NavWrap>
 
             {!header &&

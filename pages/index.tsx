@@ -1,17 +1,10 @@
 import Head from 'next/head'
 import styled from '@emotion/styled'
 import GridMain from '@/components/templates/GridMain'
-import { useEffect, useState } from 'react'
 
 
 
 export default function Home() {
-  const [text, setText] = useState<string>('헬로');
-
-  useEffect(() => {
-    setText('머함?')
-    console.log(text)
-  }, [])
 
   return (
     <>
@@ -22,8 +15,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <GridMain />
-      {text}
-      야 왜 이거 안나와?
     </>
   )
 }

@@ -21,6 +21,7 @@ const NavWrap = styled.div`
     min-width: 1070px;
     width: 100%;
     height: 700px;
+    z-index: 5;
 `
 
 const LogoWrapper = styled.div`

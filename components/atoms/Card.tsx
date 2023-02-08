@@ -65,22 +65,26 @@ const LottoRankText = styled.p`
     color: #333333;
 `
 
-const StoreName = styled.p`
+const StoreName = styled.div`
     position: absolute;
     margin: 0px;
     left: 0%;
     right: 0%;
     top: 84.77%;
     bottom: 0%;
+    
+    p {
+        margin: 0px;
+        position: relative;
+        font-family: 'Noto Sans KR';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 23px;
+        letter-spacing: -0.05em;
 
-    font-family: 'Noto Sans KR';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 23px;
-    letter-spacing: -0.05em;
-
-    color: #333333;
+        color: #333333;
+    }
 `
 
 const Card = () => {
@@ -101,8 +105,8 @@ const Card = () => {
                 </CardImageWrapper>
             </CardContainer>
             <StoreName>
-                <div>복권판매점 야탑점 복권판매점 야탑점</div>
-                <div>복권판매점 야탑점 복권판매점 야탑점</div>
+                <p>복권판매점 야탑점 복권판매점 야탑점</p>
+                <p>복권판매점 야탑점 복권판매점 야탑점</p>
             </StoreName>
         </CardWrapper>
     )

@@ -4,11 +4,10 @@ import GridMain from '@/components/templates/GridMain'
 
 
 const Section = styled.section`
-  
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 200px;
 `
 
 

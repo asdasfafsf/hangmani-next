@@ -4,7 +4,7 @@ import Card from "../atoms/Card";
 const GridWrapper = styled.div`
     display: grid;
     /* width: 100vw; */
-    /* width: 100%; */
+    width: 100%;
     min-width: 1070px;
     max-width: 1200px;
     grid-template-columns: repeat(auto-fit, minmax(288px, auto));

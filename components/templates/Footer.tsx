@@ -7,16 +7,20 @@ interface FooterProps {
 
 
 const Foot = styled.footer`
+    position: relative;
     width: 100%;
     height: 160px;
     left: 0px;
     background: #EEEEEE;
+    /* min-width: 1070px; */
+    /* max-width: 100%; */
 `
 
 const FooterWrapper = styled.div`
     position: relative;
     left: 360px;
     top: 60px;
+    width: 100%;
 `
 
 const TextArea = styled.div`
@@ -25,6 +29,7 @@ const TextArea = styled.div`
     justify-content: flex-start;
     height: 25px;
     gap: 12px;
+    width: 100%;
 `
 
 const Line = styled.p`
@@ -38,13 +43,14 @@ const Text = styled.p`
     font-weight: 400;
     font-size: 14px;
     letter-spacing: -0.05em;
+    
 `
 
 const Footer = ({}: FooterProps) => {
 
-    return <Foot>
+    return (<Foot>
         <FooterWrapper>
-            <TextArea>
+            {/* <TextArea>
                 <Text>개인정보처리방침</Text>
                 <Line />
                 <Text>이용약관</Text>
@@ -57,9 +63,9 @@ const Footer = ({}: FooterProps) => {
                 <Text>이메일 문의 : contact@hangmani.com</Text>
                 <Line />
                 <Text>Copyright Ⓒ hangmani</Text>
-            </TextArea>
+            </TextArea> */}
         </FooterWrapper>
-    </Foot>
+    </Foot>)
 }
 
 

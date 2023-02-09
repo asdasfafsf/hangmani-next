@@ -1,17 +1,17 @@
 import Head from 'next/head'
 import styled from '@emotion/styled'
 import GridMain from '@/components/templates/GridMain'
-import { useEffect, useState } from 'react'
 
+
+const Section = styled.section`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 200px;
+`
 
 
 export default function Home() {
-  const [text, setText] = useState<string>('헬로');
-
-  useEffect(() => {
-    setText('머함?')
-    console.log(text)
-  }, [])
 
   return (
     <>
@@ -21,9 +21,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <GridMain />
-      {text}
-      야 왜 이거 안나와?
+      <Section>
+        <GridMain />
+      </Section>
     </>
   )
 }

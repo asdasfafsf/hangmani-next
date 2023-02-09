@@ -30,6 +30,7 @@ const ViewerWrapper = styled.div`
     min-width: 1070px;
     width: 100%;
     transition: 0.2s;
+    z-index: 5;
 `
 
 const LoggoWrapper = styled.div`

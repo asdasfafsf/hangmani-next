@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styled from '@emotion/styled'
-import GridMain from '@/components/templates/GridMain'
+import GridMain from '@/components/patterns/GridMain'
 
 
 const Section = styled.section`

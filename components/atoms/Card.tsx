@@ -36,13 +36,14 @@ const LottoRankWrapper = styled.div`
     display: flex;
     align-items: flex-end;
     padding: 8px 16px;
-    gap: 10px;
+    gap: 8px;
 
     position: absolute;
     left: 62.5%;
     right: 6.94%;
     top: 6.79%;
     bottom: 80.3%;
+    width: 58px;
 
     background: #FFFFFF;
     border-radius: 6px;

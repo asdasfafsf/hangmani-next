@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import Card from "../atoms/Card";
+import useGridMain from "@/hooks/useGridMain";
 
 const GridWrapper = styled.div`
     display: grid;
@@ -17,14 +18,22 @@ const GridWrapper = styled.div`
 `
 
 const GridMain = () => {
+    const [gridMain] = useGridMain();
+
     return (<GridWrapper>
         {
-            Array.from({length : 30}, () => 1)
-                .map((elem) => <Card key={elem + Math.random()}/>)
+            gridMain.storeList.map( (elem, index) => {
+                return (<Card 
+                            key={index + Math.random()} 
+                            rank={elem.rank} 
+                            winCount={elem.winCount} 
+                            storeName={elem.storeName} 
+                            thumbnail={elem.thumbnail}                            
+                        />)
+            })
+
+
         }
-
-
-
     </GridWrapper>)
 }
 

@@ -7,19 +7,16 @@ export interface MainTabItemInterface {
     isSelected: boolean;
 }
 
-const mainTabItemList: MainTabItemInterface[] = [
-    {
-        name: '1등',
-        isSelected: false,
-    },
-    {
-        name: '2등',
-        isSelected: false,
-    }
-]
-
-
 export const MainTabAtom = atom({
     key: 'mainTabState',
-    default: mainTabItemList
+    default: [
+        {
+            name: '1등 배출 순위',
+            isSelected: true,
+        },
+        {
+            name: '2등 배출 순위',
+            isSelected: false,
+        }
+    ]
 });

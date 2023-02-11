@@ -10,18 +10,26 @@ export const useMainTab = () => {
             return;
         }
 
-        const updatedMaintabList: MainTabItemInterface[] = mainTabList.map(elem => {
-            elem.isSelected = false;
-            return elem;
-        });
+        const updatedMaintabList: MainTabItemInterface[] = mainTabList.map(elem => {return {name: elem.name, isSelected: false}});
+
 
         updatedMaintabList[index].isSelected = true;
         setMainTabList(updatedMaintabList);
     }, [])
+
+
+    const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        console.log(e.target);
+
+    }
     
     return [
-        mainTabList as MainTabItemInterface[],
-        select as Function
+        mainTabList,
+        select,
+        handleClick
     ] as const;
 }
 

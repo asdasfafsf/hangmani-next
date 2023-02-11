@@ -28,7 +28,7 @@ const TabUl = styled.ul`
 
 const MainTab = () => {
 
-    const [mainTabItemList, select] = useMainTab();
+    const [mainTabItemList, select, handleClick] = useMainTab();
 
     return (
         <TabNav>
@@ -36,7 +36,12 @@ const MainTab = () => {
                 <TabUl>
                     {
                         mainTabItemList.map((mainTabItem, index) => {
-                            return <MainTabItem key={index} mainTabItem={mainTabItem} />
+                            return <MainTabItem 
+                                        key={index}
+                                        name={mainTabItem.name}
+                                        isSelected={mainTabItem.isSelected}
+                                        onClick={() => select(index)}
+                                    />
                         })
                     }
                 </TabUl>

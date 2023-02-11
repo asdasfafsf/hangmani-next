@@ -52,8 +52,6 @@ export const Button = ({
     IconComponent,
     onClick=(event: React.MouseEvent<HTMLButtonElement>) => { }
 }:ButtonProps) => {
-
-    console.log(IconComponent)
     return (
         <ButtonWrapper
             onClick={onClick}

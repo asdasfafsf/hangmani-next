@@ -1,7 +1,15 @@
 import styled from "@emotion/styled";
 import Image from "next/image";
 import MapImagePNG from 'public/images/map.png';
-import Rank from 'public/svgs/icon_ranking.svg';
+import Rank2 from 'public/svgs/icon_ranking.svg';
+import Rank1 from 'public/svgs/icon_ranking1.svg';
+
+interface CardProps {
+    rank: number;
+    winCount: number;
+    storeName: string;
+    thumbnail: string;
+}
 
 
 
@@ -88,14 +96,14 @@ const StoreName = styled.div`
     }
 `
 
-const Card = () => {
+const Card = ({rank, winCount, thumbnail, storeName}: CardProps) => {
     return (
         <CardWrapper>
             <CardContainer>
                 
                 <LottoRankWrapper>
-                    <Rank />
-                    <LottoRankText>10회</LottoRankText>
+                    {rank === 2 ? <Rank2 /> : <Rank1 />}
+                    <LottoRankText>{winCount}회</LottoRankText>
                 </LottoRankWrapper>
                 <CardImageWrapper>
                     <CardImg 
@@ -106,8 +114,8 @@ const Card = () => {
                 </CardImageWrapper>
             </CardContainer>
             <StoreName>
-                <p>복권판매점 야탑점 복권판매점 야탑점</p>
-                <p>복권판매점 야탑점 복권판매점 야탑점</p>
+                <p>{storeName}{storeName}</p>
+                <p>{storeName}{storeName}</p>
             </StoreName>
         </CardWrapper>
     )

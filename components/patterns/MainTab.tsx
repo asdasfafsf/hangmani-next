@@ -1,7 +1,7 @@
+import useMainTab from "@/hooks/useMainTab";
 import styled from "@emotion/styled";
 import MainTabItem from "../atoms/MainTabItem";
-
-
+import { MainTabItemInterface } from "@/recoils/MainTab";
 
 const TabNav = styled.nav`
     display: flex;
@@ -28,16 +28,17 @@ const TabUl = styled.ul`
 
 const MainTab = () => {
 
+    const [mainTabItemList, select] = useMainTab();
+
     return (
         <TabNav>
             <TabNav>
                 <TabUl>
-                    <MainTabItem 
-                    
-                    />
-                    <MainTabItem 
-                    
-                    />
+                    {
+                        mainTabItemList.map((mainTabItem, index) => {
+                            return <MainTabItem key={index} mainTabItem={mainTabItem} />
+                        })
+                    }
                 </TabUl>
             </TabNav>
         </TabNav>

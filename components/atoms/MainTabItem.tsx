@@ -1,6 +1,11 @@
 import styled from "@emotion/styled";
+import { MainTabItemInterface } from "@/recoils/MainTab";
 
 
+
+interface MainTabItemProps {
+    mainTabItem: MainTabItemInterface
+}
 
 const MainTabItemLi = styled.li`
     top: 0px;
@@ -38,11 +43,11 @@ const MainTabText = styled.p`
 
 
 
-const MainTabItem = () => {
+const MainTabItem = ({mainTabItem}: MainTabItemProps) => {
     return (
         <MainTabItemLi>
             <MainTabText>
-                안녕?
+                {mainTabItem.name}
             </MainTabText>
         </MainTabItemLi>
     );

@@ -30,7 +30,6 @@ const useGridMain = () => {
             storeList: storeList
         };
 
-        console.log(storeList);
         setGridMain(newGridMain);
     }
 

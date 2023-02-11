@@ -28,7 +28,7 @@ const TabUl = styled.ul`
 
 const MainTab = () => {
 
-    const [mainTabItemList, select, handleClick] = useMainTab();
+    const [mainTabItemList, select] = useMainTab();
 
     return (
         <TabNav>

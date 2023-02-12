@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import FilterSelector from "../patterns/FilterSelector";
 
 
 const Wrapper = styled.div`
@@ -27,8 +28,9 @@ const MainTemplate = () => {
 
         <Wrapper>
             <Aside>
+                <FilterSelector />
+                <FilterSelector />
 
-                
             </Aside>
                 
             <Section>

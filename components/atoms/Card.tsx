@@ -41,7 +41,7 @@ const CardImg = styled(Image)`
 
 const LottoRankWrapper = styled.div`
     position: absolute;
-    left: 62.5%;
+    left: 65.5%;
     right: 6.94%;
     top: 6.79%;
     bottom: 80.3%;
@@ -78,7 +78,7 @@ const Card = ({rank, winCount, thumbnail, storeName}: CardProps) => {
             <CardContainer>
                 
                 <LottoRankWrapper>
-                    <LottoRank rank={rank} winCount={winCount}/>
+                    <LottoRank isShadow={true} rank={rank} winCount={winCount}/>
                 </LottoRankWrapper>
                 <CardImageWrapper>
                     <CardImg 

@@ -13,7 +13,7 @@ const LottoRankWrapper = styled.div`
     display: flex;
     justify-content: flex-start;
     align-item: center;
-    padding: 3px 16px;
+    padding: 4px 16px;
     gap: 8px;
     /* width: 58px; */
     background: #FFFFFF;
@@ -39,7 +39,7 @@ const LottoRankText = styled.div`
     font-weight: 700;
     font-size: 16px;
     letter-spacing: -0.05em;
-    margin-top: 5px;
+    margin-top: 4px;
     color: #333333;
 `
 

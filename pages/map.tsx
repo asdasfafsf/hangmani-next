@@ -3,6 +3,7 @@ import MainTemplate from '@/components/templates/MainTemplate'
 import { ReactElement, ReactNode } from 'react'
 import Layout from '@/components/layouts/Layout'
 import MapLayout from '@/components/layouts/MapLayout'
+import MapTemplate from '@/components/templates/MapTemplate'
 
 
 export default function Map() {
@@ -15,6 +16,7 @@ export default function Map() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <MapTemplate />
     </>
   )
 }

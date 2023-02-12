@@ -17,7 +17,7 @@ interface ShadowCssProps {
 
 
 const ShadowCss = ({isShadow}: ShadowCssProps) => css`
-    box-shadow: 1px 4px 4px 1px gray;
+    box-shadow: ${(isShadow ? '1px 4px 4px 1px gray' : undefined)}
 `
 
 const LottoRankWrapper = styled.div`

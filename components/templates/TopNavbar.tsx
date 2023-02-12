@@ -91,15 +91,17 @@ const Li = styled.li`
 const NoticeLi = styled.li`
     a {
         font-style: normal;
-        font-weight: 700;
-        color: #FF7044;
         /* letter-spacing: -0.05em; */
-    }
 
-    :hover {
+        :hover {
+        color: #FF7044;
+        font-weight: 700;
         text-decoration: underline;
+        }
+
     }
 `
+
 
 
 
@@ -138,3 +140,25 @@ const TopNavBar = ({}: TopNavBar) => {
 
 
 export default TopNavBar;
+
+
+export const FixedTopNavbar = () => {
+    return (
+            <Nav isMerge={false}>
+                <FlexDivLeft>
+                    <LogoWrapper>
+                        <Logo />
+                    </LogoWrapper>
+                    <Ul>
+                        <NoticeLi><Link href={"#"}>공지사항</Link></NoticeLi>
+                    </Ul>
+                </FlexDivLeft>
+                <FlexDivRight>
+                    <Ul>
+                        <Li><Link href={"#"}>로그인</Link></Li>
+                        <Li><Link href={"#"}>회원가입</Link></Li>
+                    </Ul>
+                </FlexDivRight>
+            </Nav>  
+)
+}

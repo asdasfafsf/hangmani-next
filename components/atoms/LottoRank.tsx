@@ -17,11 +17,11 @@ interface ShadowCssProps {
 
 
 const ShadowCss = ({isShadow}: ShadowCssProps) => css`
-    box-shadow: ${(isShadow ? '1px 4px 4px 1px gray' : undefined)}
-`
+    box-shadow: ${(isShadow ? '1px 4px 4px 1px gray' : undefined)};
+`;
 
 const LottoRankWrapper = styled.div`
-${ShadowCss}
+    ${ShadowCss}
     position: absolute;
     display: flex;
     justify-content: space-around;
@@ -58,3 +58,5 @@ export const LottoRank = ({winCount, rank, isShadow}: LottoRankProps) => {
                 </LottoRankText>
     </LottoRankWrapper>)
 }
+
+export default LottoRank;

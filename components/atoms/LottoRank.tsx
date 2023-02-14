@@ -7,28 +7,31 @@ interface LottoRankProps {
     winCount: number;
     rank: number;
     isShadow: boolean;
+    isBorder?: boolean;
+    width?: number;
+    height?: number;
 }
 
 
 
 interface ShadowCssProps {
     isShadow: boolean;
+    isBorder: boolean;
 }
 
 
-const ShadowCss = ({isShadow}: ShadowCssProps) => css`
+const ShadowCss = ({isShadow, isBorder}: ShadowCssProps) => css`
     box-shadow: ${(isShadow ? '1px 4px 4px 1px gray' : undefined)};
+    border: ${(isBorder ? '1px solid lightgray' : undefined)};
 `;
 
 const LottoRankWrapper = styled.div`
     ${ShadowCss}
-    position: absolute;
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 4px 12px;
     gap: 8px;
-    /* width: 58px; */
     background: #FFFFFF;
     border-radius: 6px;
 
@@ -49,9 +52,9 @@ const LottoRankText = styled.div`
     color: #333333;
 `
 
-export const LottoRank = ({winCount, rank, isShadow}: LottoRankProps) => {
+export const LottoRank = ({winCount, rank, isShadow, isBorder=false, width, height}: LottoRankProps) => {
 
-    return (<LottoRankWrapper isShadow={isShadow}>
+    return (<LottoRankWrapper isShadow={isShadow} isBorder={isBorder}>
                 {rank === 2 ? <Rank2 /> : <Rank1 />}
                 <LottoRankText>
                     <div>{winCount}회</div>

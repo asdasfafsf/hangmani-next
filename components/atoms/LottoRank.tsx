@@ -25,7 +25,7 @@ ${ShadowCss}
     position: absolute;
     display: flex;
     justify-content: space-around;
-    align-item: center;
+    align-items: center;
     padding: 4px 12px;
     gap: 8px;
     /* width: 58px; */

@@ -23,7 +23,7 @@ const FilterSelectorItemLi = styled.li`
     padding: 6px 12px;
     background: #FFFFFF;
     border-radius: 4px;
-    align-item: center;
+    align-items: center;
 
     cursor: pointer;
 

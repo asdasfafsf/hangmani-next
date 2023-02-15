@@ -9,7 +9,7 @@ export interface LottoTypeFilter {
 }
 
 export const LottoTypeFilterAtom = atom<LottoTypeFilter[]>({
-    key: 'lottoTypeFilter',
+    key: 'lottoTypeFilterState',
     default: [
         {
             isSelected: true,

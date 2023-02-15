@@ -1,6 +1,18 @@
 import styled from "@emotion/styled";
 import FilterSelectorItem from "../atoms/FilterSelectorItem";
 
+
+interface FilterSelectorProps {
+    itemList: FilterSelectorItemProps[];
+    handleClickItem(index: number): any;
+}
+
+interface FilterSelectorItemProps {
+    isSelected: boolean;
+    text: string;
+}
+
+
 const FilterSelectorWrapper = styled.nav`
     margin: 0px;
     width: 100%;
@@ -17,17 +29,21 @@ const FilterSelectUl = styled.ul`
 `
 
 
-const FilterSelector = () => {
+const FilterSelector = ({itemList, handleClickItem}:FilterSelectorProps) => {
 
 
     return (
         <FilterSelectorWrapper>
             <FilterSelectUl>
-                <FilterSelectorItem isSelected={true} text={'Lotto 6/45'} />
-                <FilterSelectorItem isSelected={false} text={'연금복권 720'} />
-                <FilterSelectorItem isSelected={false} text={'스피또 500'} />
-                <FilterSelectorItem isSelected={false} text={'스피또 1000'} />
-                <FilterSelectorItem isSelected={false} text={'스피또 2000'} />
+                {
+                    itemList.map((elem, index) => <FilterSelectorItem 
+                                            key={elem.text}
+                                            isSelected={elem.isSelected} 
+                                            text={elem.text}
+                                            onClick={() => handleClickItem(index)}
+                                        />)
+                }
+                
             </FilterSelectUl>
         </FilterSelectorWrapper>
     )

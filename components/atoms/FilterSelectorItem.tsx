@@ -5,9 +5,14 @@ import styled from "@emotion/styled";
 interface FilterSelectorItem {
     isSelected: boolean;
     text: string;
+    onClick: React.MouseEventHandler<HTMLElement>
 }
 
-const DynamicFilterSelectorItemStyle = ({isSelected, text}: FilterSelectorItem) => css`
+interface FilterSelectorStyleProps {
+    isSelected: boolean;
+}
+
+const DynamicFilterSelectorItemStyle = ({isSelected}: FilterSelectorStyleProps) => css`
     border: ${(isSelected ? '1px solid #FF7044;': '1px solid #D9D9D9;')}
 
 
@@ -44,11 +49,10 @@ const FilterSelectorText = styled.p`
     letter-spacing: -0.05em;
 `
 
-const FilterSelectorItem = ({isSelected, text}: FilterSelectorItem) => {
-
+const FilterSelectorItem = ({isSelected, text, onClick}: FilterSelectorItem) => {
 
     return (
-       <FilterSelectorItemLi isSelected={isSelected} text={""}>
+       <FilterSelectorItemLi isSelected={isSelected} onClick={onClick}>
             <FilterSelectorText>
                 {text}
             </FilterSelectorText>

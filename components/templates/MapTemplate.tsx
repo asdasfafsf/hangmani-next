@@ -2,6 +2,7 @@ import useLottoTypeFilter from "@/hooks/useLottoTypeFilter";
 import useStoreSortFilter from "@/hooks/useStoreSortFilter";
 import styled from "@emotion/styled";
 import StoreCard from "../atoms/StoreCard";
+import DistanceFilter from "../patterns/DistanceFilter";
 import FilterSelector from "../patterns/FilterSelector";
 
 
@@ -14,6 +15,9 @@ const Wrapper = styled.div`
 `
 
 const Section = styled.section`
+    /* width: 100vw; */
+    width: 50%;
+    max-width: 1200px;
 `
 
 
@@ -30,8 +34,8 @@ const FilterSelectorWrap = styled.div`
 const MainTemplate = () => {
     const [lottoTypeFilter, handleClickLottoTypeFilter] = useLottoTypeFilter();
     const [storeSortFilter, handleClickStoreSortFilter] = useStoreSortFilter();
+    
     return (
-
         <Wrapper>
             <Aside>
                 <FilterSelectorWrap>
@@ -79,7 +83,7 @@ const MainTemplate = () => {
             </Aside>
                 
             <Section>
-                
+                <DistanceFilter />
             </Section>
         </Wrapper>
     )

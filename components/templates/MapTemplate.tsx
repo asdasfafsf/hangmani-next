@@ -28,7 +28,8 @@ const Aside = styled.aside`
 `
 
 const FilterSelectorWrap = styled.div`
-    
+    border: 1px solid lightgray;
+    box-sizing: border-box;
 `
 
 const MainTemplate = () => {

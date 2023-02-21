@@ -1,13 +1,34 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
 
+interface DistanceFilterItemProps {
+    isSelected: boolean;
+    distance: number;
+    text: string;
+    onClick: any;
+}
+
+interface DynamicDistanceFilterItemLiStyleProps {
+    isSelected:boolean;
+}
+
+const DynamicDistanceFilterItemLiStyle = ({isSelected}:DynamicDistanceFilterItemLiStyleProps) => css`
+    background-color:${(isSelected ? '#707070;' : '#FFFFFF;')};
+
+    p {
+        color:${(isSelected ? '#FFFFFF;' : 'black;')}; 
+    }
+`
+
+
 const DistanceFilterItemLi = styled.li`
+    ${DynamicDistanceFilterItemLiStyle};
     display: flex;
     list-style: none;
     border-radius: 20px;
     width: 100px;
     height: 40px;
-    background-color: #707070;
     justify-content: center;
     align-items: center;
     cursor: pointer;
@@ -23,15 +44,15 @@ const DistanceFilterItemText = styled.p`
     font-size: 16px;
     line-height: 23px;
 
-    color: #FFFFFF;
+    
 `
 
-const DistanceFilterItem = () => {
+const DistanceFilterItem = ({isSelected, text, distance, onClick}: DistanceFilterItemProps) => {
 
     return (
-        <DistanceFilterItemLi>
+        <DistanceFilterItemLi onClick={onClick} isSelected={isSelected}>
             <DistanceFilterItemText>
-                500m
+                {text}
             </DistanceFilterItemText>
         </DistanceFilterItemLi>
     )

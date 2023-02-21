@@ -10,15 +10,12 @@ export const useMainTab = () => {
             return;
         }
 
-        console.log(`왜아무일도안일어나누 ${index}`);
         const updatedMaintabList: MainTabItemInterface[] = mainTabList.map(elem => {return {name: elem.name, isSelected: false}});
         updatedMaintabList[index] = {
             name : updatedMaintabList[index].name,
             isSelected: true
         }
         setMainTabList([...updatedMaintabList]);
-
-        console.log(updatedMaintabList);
     }
 
     return [

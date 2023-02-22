@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import StoreCard from "../atoms/StoreCard";
 import DistanceFilter from "../patterns/DistanceFilter";
 import FilterSelector from "../patterns/FilterSelector";
+import NaverMaps from "../patterns/NaverMaps";
 
 
 const Wrapper = styled.div`
@@ -85,6 +86,7 @@ const MainTemplate = () => {
                 
             <Section>
                 <DistanceFilter />
+                <NaverMaps />
             </Section>
         </Wrapper>
     )

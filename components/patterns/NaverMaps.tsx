@@ -3,8 +3,8 @@ import { useEffect } from "react";
 
 
 const MapWrapper = styled.div`
-    width: 1000px;
-    height: 500px;
+width: 1470px;
+height: 860px;
 `
 
 const NaverMaps = () => {

@@ -8,8 +8,7 @@ const DistanceFilterWrapper = styled.ul`
     margin: 0px;
     margin-left: 10px;
     margin-right: 10px;
-
-    width: 100%;
+    width: 1470px;
     height: 60px;
     list-style: none;
 `

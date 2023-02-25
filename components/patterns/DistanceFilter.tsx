@@ -1,3 +1,4 @@
+import useDistanceFilter from "@/hooks/useDistanceFilter";
 import styled from "@emotion/styled";
 import DistanceFilterItem from "../atoms/DistanceFilterItem";
 
@@ -15,14 +16,20 @@ const DistanceFilterWrapper = styled.ul`
 
 
 const DistanceFilter = () => {
-
+    const [distanceFilter, select] = useDistanceFilter();
     return (
         <DistanceFilterWrapper>
-            <DistanceFilterItem />
-            <DistanceFilterItem />
-            <DistanceFilterItem />
-            <DistanceFilterItem />
-            <DistanceFilterItem />
+            {
+                distanceFilter.map((elem, index) => {
+                    const handleClick = (e: any) => select(index);
+                    return <DistanceFilterItem 
+                                isSelected={elem.isSelected} 
+                                distance={elem.distance} 
+                                text={elem.text} 
+                                onClick={handleClick} 
+                            />
+                })
+            }
         </DistanceFilterWrapper>
     )
 }

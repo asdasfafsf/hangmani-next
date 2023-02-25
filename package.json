@@ -48,6 +48,7 @@
     "@storybook/testing-library": "^0.0.13",
     "@svgr/webpack": "^6.5.1",
     "@types/styled-components": "^5.1.26",
+    "@types/navermaps": "^3.6.2",
     "babel-loader": "^8.3.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",

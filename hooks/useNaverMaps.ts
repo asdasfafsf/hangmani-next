@@ -3,12 +3,17 @@ import { hasGeolocation, hasAuthority, getGeo } from "@/lib/geo";
 import { Geo } from "@/lib/types/Geo";
 import { Geo as GeoInterface } from "@/recoils/CurrentGeo";
 import { CurrentGeoAtom } from "@/recoils/CurrentGeo";
-import { useRecoilState } from "recoil";
+import { NaverMapAtom } from "@/recoils/NaverMap";
+import { DistanceFilterAtom } from "@/recoils/DistanceFilter";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { useRouter } from "next/router";
+
 
 
 const useNaverMaps = () => {
     const [currentGeo, setCurrentGeo] = useRecoilState<GeoInterface>(CurrentGeoAtom);
+    const [naverMap, setNaverMap] = useRecoilState(NaverMapAtom);
+    const distanceFilter = useRecoilValue(DistanceFilterAtom);
     const router = useRouter();
 
     useEffect(() => {
@@ -37,13 +42,6 @@ const useNaverMaps = () => {
                 latitude,
                 longitude
             });
-
-            const mapOptions = {
-                center: new naver.maps.LatLng(latitude, longitude),
-                zoom: 10
-            };
-    
-            const map = new naver.maps.Map('map', mapOptions);
         }
 
         
@@ -51,7 +49,7 @@ const useNaverMaps = () => {
     }, [])
 
 
-    return [];
+    return [setNaverMap] as const;
 }
 
 export default useNaverMaps;

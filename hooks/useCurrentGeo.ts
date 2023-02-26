@@ -1,13 +1,14 @@
+import { CurrentGeoAtom } from "@/recoils/CurrentGeo";
 import { useEffect } from "react";
+import { useRecoilState } from "recoil";
 
 export const useCurrentGeo = () => {
- 
 
-    useEffect(() => {
-        
-    })
+    const [currentGeo, setCurrentGeo] = useRecoilState(CurrentGeoAtom);
+
+
     
-    return []
+    return [currentGeo, setCurrentGeo] as const;
 };
 
 

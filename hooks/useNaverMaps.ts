@@ -19,21 +19,18 @@ const useNaverMaps = () => {
     useEffect(() => {
 
         const initialize = async () => {
-
             if (hasGeolocation() === false) {
                 alert('geolocation이 없습니다.');
                 router.back();
 
                 return false;
             }
-
             if (await hasAuthority() === false) {
                 alert('지도 권한이 없습니다.');
                 router.back();
 
                 return false;
             }
-
 
             const geo: Geo = await getGeo();
             const { latitude, longitude } = geo;
@@ -49,7 +46,7 @@ const useNaverMaps = () => {
     }, [])
 
 
-    return [setNaverMap] as const;
+    return [naverMap, setNaverMap] as const;
 }
 
 export default useNaverMaps;

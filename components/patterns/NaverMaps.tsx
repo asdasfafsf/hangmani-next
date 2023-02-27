@@ -4,35 +4,48 @@ import styled from "@emotion/styled";
 import { useEffect } from "react";
 
 
+
+
 const MapWrapper = styled.div`
-width: 1470px;
-height: 860px;
+    position: relative;
+    width: 1470px;
+    height: 860px;
+`
+
+const Map = styled.div`
+    width: 100%;
+    height: 100%;
 `
 
 const NaverMaps = () => {
-
     const [currentGeo, setCurrentGeo] = useCurrentGeo();
-    const [setNaverMap] = useNaverMaps();
-
+    const [naverMap, setNaverMap] = useNaverMaps();
 
     useEffect(() => {
         const { latitude, longitude } = currentGeo;
-        const mapOptions = {
-            center: new naver.maps.LatLng(latitude, longitude),
+
+  
+        const map = naverMap ?? new naver.maps.Map('map', {
+            center: new naver.maps.LatLng(37.3595704, 127.105399),
             zoom: 10
-        };
+        });
+        
 
-        const map = new naver.maps.Map('map', mapOptions);
+        console.log(currentGeo)
+
         setNaverMap(map);
+        map.setCenter(new naver.maps.LatLng(latitude, longitude))
+        console.log(map.getCenter())
 
-        console.log(map)
+    },[currentGeo])
 
-    },[])
 
 
     return (
-        <MapWrapper id='map'>
+        <MapWrapper>
+            <Map id='map'>
 
+            </Map>
 
         </MapWrapper>
     )

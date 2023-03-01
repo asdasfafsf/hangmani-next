@@ -45,6 +45,14 @@ const useNaverMaps = () => {
         }
     }, [])
 
+    useEffect(() => {
+
+    }, [naverMap]);
+
+
+
+
+
 
     return [naverMap, setNaverMap] as const;
 }

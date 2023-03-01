@@ -7,18 +7,29 @@ import FilterSelector from "../patterns/FilterSelector";
 import NaverMaps from "../patterns/NaverMaps";
 
 
+
+
+
+
+
 const Wrapper = styled.div`
     top: 100px;
     position: relative;
     display: flex;
+    /* justify-contents: center; */
     width: 100%;
     height: 100vh;
 `
 
 const Section = styled.section`
-    /* width: 100vw; */
-    width: 50%;
-    max-width: 1200px;
+    width: 100%;
+    max-width:1450px;
+    display: flex;
+    justify-content: center;
+`
+
+const SectionWrap = styled.div`
+    width: 100%;
 `
 
 
@@ -85,8 +96,10 @@ const MainTemplate = () => {
             </Aside>
                 
             <Section>
-                <DistanceFilter />
-                <NaverMaps />
+                <SectionWrap>
+                    <DistanceFilter />
+                    <NaverMaps />
+                </SectionWrap>
             </Section>
         </Wrapper>
     )

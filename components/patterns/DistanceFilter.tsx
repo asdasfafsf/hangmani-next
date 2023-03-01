@@ -5,12 +5,11 @@ import DistanceFilterItem from "../atoms/DistanceFilterItem";
 const DistanceFilterWrapper = styled.ul`
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin: 0px;
-    margin-left: 10px;
-    margin-right: 10px;
-    width: 1470px;
+    width: 1450px;
     height: 60px;
+    padding: 0px;
     list-style: none;
 `
 

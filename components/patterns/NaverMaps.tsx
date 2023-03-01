@@ -1,14 +1,14 @@
 import useCurrentGeo from "@/hooks/useCurrentGeo";
 import useNaverMaps from "@/hooks/useNaverMaps";
 import styled from "@emotion/styled";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 
 
 
 const MapWrapper = styled.div`
     position: relative;
-    width: 1470px;
+    width: 1450px;
     height: 860px;
 `
 
@@ -23,25 +23,27 @@ const NaverMaps = () => {
     const [currentGeo, setCurrentGeo] = useCurrentGeo();
     const [naverMap, setNaverMap] = useNaverMaps();
 
+
     useEffect(() => {
         const { latitude, longitude } = currentGeo;        
-        const createdNaverMap = new naver.maps.Map(mapElem.current || 'map', {
-            center: new naver.maps.LatLng(37.3595704, 127.105399),
+        const createdNaverMap = new naver.maps.Map('map', {
+            center: new naver.maps.LatLng(latitude, longitude),
             zoom: 1000
-        });
-        
-        // if (!naverMap) {
-        //     setNaverMap(createdNaverMap);
-        // }
-
-        // createdNaverMap.setCenter(new naver.maps.LatLng(latitude, longitude))
+        })
 
 
+        if (!naverMap) {
+            setTimeout(() => {
+                setNaverMap(createdNaverMap)
+            }, 500)
+        }
     },[])
 
-    useEffect(() => {
-        
-    }, [currentGeo])
+    useEffect(() => {   
+        if (naverMap) {
+
+        }
+    }, [naverMap])
 
 
 

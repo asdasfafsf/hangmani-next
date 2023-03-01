@@ -17,7 +17,6 @@ const useNaverMaps = () => {
     const router = useRouter();
 
     useEffect(() => {
-
         const initialize = async () => {
             if (hasGeolocation() === false) {
                 alert('geolocation이 없습니다.');
@@ -41,8 +40,9 @@ const useNaverMaps = () => {
             });
         }
 
-        
-        initialize();
+        if (naverMap === null) {
+            initialize();
+        }
     }, [])
 
 

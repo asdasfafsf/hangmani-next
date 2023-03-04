@@ -7,6 +7,13 @@ import SquareButton from "../atoms/SquareButton";
 
 
 
+const Wrapper = styled.div`
+    position: relative;
+    width: 1450px;
+    height: 860px;
+`
+
+
 const MapWrapper = styled.div`
     position: relative;
     width: 1450px;
@@ -17,6 +24,10 @@ const Map = styled.div`
     position: relative;
     width: 100%;
     height: 100%;
+
+    * {
+        z-index: 5;
+    }
 `
 
 
@@ -26,9 +37,11 @@ const ReloadWrapper = styled.div`
     height: 43px;
     left: 1230px;
     top: 60px;
+    z-index: 5;
 `
 
 const CurrentLocateWrapper = styled.div`
+    z-index: 5;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -51,6 +64,7 @@ const CurrentLocateWrapper = styled.div`
 
 const NaverMaps = () => {
     const mapElem = useRef(null);
+    const mapWrapElem = useRef(null);
 
     const [currentGeo, setCurrentGeo] = useCurrentGeo();
     const [naverMap, setNaverMap] = useNaverMaps();
@@ -60,7 +74,7 @@ const NaverMaps = () => {
         const { latitude, longitude } = currentGeo;        
         const createdNaverMap = new naver.maps.Map('map', {
             center: new naver.maps.LatLng(latitude, longitude),
-            zoom: 1000
+            zoom: 10
         })
 
 
@@ -73,14 +87,17 @@ const NaverMaps = () => {
 
 
 
+
     return (
-        <MapWrapper>
-            <Map id='map' ref={mapElem}>
-            </Map>
-            <CurrentLocateWrapper>
+        <>
+            <Wrapper>
+            <MapWrapper ref={mapWrapElem}>
+                <Map id='map' ref={mapElem}>
+                </Map>
+                <CurrentLocateWrapper>
                 현 위치 : 경기 성남시 분당구 야탑동
-            </CurrentLocateWrapper>
-            <ReloadWrapper>
+                </CurrentLocateWrapper>
+                <ReloadWrapper>
                     <SquareButton 
                         width="130px"
                         height="43px"
@@ -88,8 +105,11 @@ const NaverMaps = () => {
                         textColor="white"
                         text="이 지역 재검색"
                     />
-            </ReloadWrapper>
-        </MapWrapper>
+                </ReloadWrapper>
+            </MapWrapper>
+            </Wrapper>
+     
+        </>
     )
 }
 

@@ -9,10 +9,12 @@ export const hasAuthority = (): Promise<boolean>  => {
         navigator.geolocation.getCurrentPosition(() => {}, (geoLocationPositionError) => {
             if (geoLocationPositionError.code === geoLocationPositionError.PERMISSION_DENIED) {
                 resolve(false);
+            } else {
+                resolve(true);
             }
         });
 
-        resolve(true);
+        
     })
 }
 

@@ -26,6 +26,14 @@ const NavWrap = styled.div`
 
 const LogoWrapper = styled.div`
     width: 240px;
+    position: absolute;
+    /* align-items: center;
+    justify-content: center; */
+    top: 25px;
+    /* align-items: center; */
+    left: 40px;
+    height: 100%;
+    display: flex;
 `
 
 
@@ -114,10 +122,10 @@ const TopNavBar = ({}: TopNavBar) => {
 
             {!header &&
                 <Nav isMerge={header}>
+                    <LogoWrapper>
+                        <Logo />
+                    </LogoWrapper>
                     <FlexDivLeft>
-                        <LogoWrapper>
-                            <Logo />
-                        </LogoWrapper>
                         <Ul>
                             <NoticeLi><Link href={"#"}>공지사항</Link></NoticeLi>
                         </Ul>

@@ -12,6 +12,8 @@ import useLayout from "@/hooks/useLayout";
 import Logo from "../atoms/Logo";
 import { css } from "@emotion/react";
 import { useEffect, useState } from "react";
+import WhiteLogo from "../atoms/WhiteLogo";
+import useCurrentGeo from "@/hooks/useCurrentGeo";
 
 
 interface ViewerWrapperProps {
@@ -138,7 +140,8 @@ const ButtonArea = styled.div`
 const TopViewHeader = () => {
     const { header } = useLayout();
     const [isRender, setRender] = useState(false);
-
+    const [currentGeo, handleCurrentGeo] = useCurrentGeo();
+    
     useEffect(() => {
         setRender(true)
     }, [])
@@ -154,7 +157,7 @@ const TopViewHeader = () => {
             </BackgroundMap>
             <BlackOpacityCover />
             <LogoWrapper>
-                <Logo />
+                <WhiteLogo />
             </LogoWrapper>
             <ForeGroundWrapper>
                 <FlexBox>
@@ -180,6 +183,7 @@ const TopViewHeader = () => {
                             IconComponent={LocationIcon}
                             width={'162px'}
                             height={'39px'}
+                            onClick={handleCurrentGeo}
                         />
                     </ButtonArea>
                     </ContentArea>

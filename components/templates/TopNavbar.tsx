@@ -5,6 +5,7 @@ import Logo from "../atoms/Logo";
 import TopView from "./TopView";
 import Link from "next/link";
 import TopViewHeader from "./TopViewHeader";
+import useCurrentGeo from "@/hooks/useCurrentGeo";
 
 
 
@@ -154,7 +155,6 @@ const NoticeLi = styled.li`
 
 const TopNavBar = ({}: TopNavBar) => {
     const { header } = useLayout();
-    
     
     return (<NavWrap>
 

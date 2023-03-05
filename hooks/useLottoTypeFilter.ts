@@ -10,11 +10,11 @@ const useLottoTypeFilter = () => {
             const { isSelected, text } = elem;
             
             return {
-                isSelected,
+                isSelected: false,
                 text
             };
         });
-        copied[index].isSelected = !copied[index].isSelected;
+        copied[index].isSelected = true;
 
         setLottoTypeFilter(copied);
     }

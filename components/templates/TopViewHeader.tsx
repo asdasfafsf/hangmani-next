@@ -87,6 +87,8 @@ const ContentArea = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    top: 5px;
 `
 
 

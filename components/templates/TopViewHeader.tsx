@@ -29,15 +29,19 @@ const ViewerWrapper = styled.div`
     justify-content: center;
     min-width: 1070px;
     width: 100%;
-    transition: 0.2s;
+    transition: 0.3s;
     z-index: 5;
 `
 
-const LoggoWrapper = styled.div`
-    width: 210px;
+const LogoWrapper = styled.div`
+    width: 240px;
+    position: absolute;
+    /* align-items: center;
+    justify-content: center; */
+    top: 25px;
+    left: 40px;
+    height: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
 
     * {
         color: white;
@@ -149,11 +153,11 @@ const TopViewHeader = () => {
                 />
             </BackgroundMap>
             <BlackOpacityCover />
+            <LogoWrapper>
+                <Logo />
+            </LogoWrapper>
             <ForeGroundWrapper>
                 <FlexBox>
-                    <LoggoWrapper>
-                        <Logo />
-                    </LoggoWrapper>
                     <ContentArea>
                     <ForYou>당신을 위한</ForYou>
                     <Addr>{addr} </Addr>

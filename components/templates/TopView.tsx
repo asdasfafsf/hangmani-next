@@ -10,6 +10,7 @@ import LocationIcon from 'public/svgs/icon_location.svg';
 import SearchIcon from 'public/svgs/icon_search.svg'
 import useLayout from "@/hooks/useLayout";
 import { css } from "@emotion/react";
+import useCurrentGeo from "@/hooks/useCurrentGeo";
 
 
 const ViewerWrapper = styled.div`
@@ -118,6 +119,7 @@ const CoverWrapper = styled.div`
 
 const TopView = () => {
     const { header } = useLayout();
+    const [currentGeo, handleCurrentGeo] = useCurrentGeo();
 
     const addr = `경기 성남시 분당구 야탑동`
     return (
@@ -157,6 +159,7 @@ const TopView = () => {
                                 textColor="white"
                                 color="#2AB5BE"
                                 IconComponent={LocationIcon}
+                                onClick={handleCurrentGeo}
                                 // width={header ? '162px' : '190px'}
                                 // height={header ? '39px' : undefined}
                             />

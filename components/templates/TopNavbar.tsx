@@ -5,6 +5,7 @@ import Logo from "../atoms/Logo";
 import TopView from "./TopView";
 import Link from "next/link";
 import TopViewHeader from "./TopViewHeader";
+import useCurrentGeo from "@/hooks/useCurrentGeo";
 
 
 
@@ -26,6 +27,14 @@ const NavWrap = styled.div`
 
 const LogoWrapper = styled.div`
     width: 240px;
+    position: absolute;
+    /* align-items: center;
+    justify-content: center; */
+    top: 25px;
+    /* align-items: center; */
+    left: 40px;
+    height: 100%;
+    display: flex;
 `
 
 
@@ -43,6 +52,18 @@ const Nav = styled.nav<NavProps>`
     z-index: 50;
     display: flex;
     transition: 0.15s;
+    align-items: center;
+    justify-content: center;
+`
+
+const FlexWrapper = styled.div`
+display: flex;
+    max-width: 1200px;
+    min-width: 1070px;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
 `
 
 const FlexDivLeft = styled.div`
@@ -84,19 +105,45 @@ const Ul = styled.ul`
     }
 `
 
+
+const RightUl = styled.ul`
+    display: flex;
+    list-style: none;
+    margin: 0px;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 0px;
+
+    a {
+        color: black;
+        text-decoration: none;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 23px;
+        /* letter-spacing: -0.05em; */
+    }
+`
+
+
 const Li = styled.li`
     margin: 0px;
-    width: 90px;
+    width: 110px;
 `
 const NoticeLi = styled.li`
+
+    position: relative;
+    top: 5px;
     a {
         font-style: normal;
         /* letter-spacing: -0.05em; */
 
         :hover {
-        color: #FF7044;
-        font-weight: 700;
-        text-decoration: underline;
+            color: #FF7044;
+            font-weight: 700;
+            text-decoration: underline;
         }
 
     }
@@ -109,25 +156,25 @@ const NoticeLi = styled.li`
 const TopNavBar = ({}: TopNavBar) => {
     const { header } = useLayout();
     
-    
     return (<NavWrap>
 
             {!header &&
                 <Nav isMerge={header}>
-                    <FlexDivLeft>
-                        <LogoWrapper>
-                            <Logo />
-                        </LogoWrapper>
-                        <Ul>
-                            <NoticeLi><Link href={"#"}>공지사항</Link></NoticeLi>
-                        </Ul>
-                    </FlexDivLeft>
-                    <FlexDivRight>
-                        <Ul>
-                            <Li><Link href={"#"}>로그인</Link></Li>
-                            <Li><Link href={"#"}>회원가입</Link></Li>
-                        </Ul>
-                    </FlexDivRight>
+                    <LogoWrapper>
+                        <Logo />
+                    </LogoWrapper>
+                    <FlexWrapper>
+                        <FlexDivLeft>
+                            <Ul>
+                                <NoticeLi><Link href={"#"}>공지사항</Link></NoticeLi>
+                            </Ul>
+                        </FlexDivLeft>
+                        <FlexDivRight>
+                            <RightUl>
+                                <NoticeLi><Link href={"#"}>시작하기</Link></NoticeLi>
+                            </RightUl>
+                        </FlexDivRight>
+                    </FlexWrapper>
                 </Nav>
             }
             {!header 
@@ -160,5 +207,5 @@ export const FixedTopNavbar = () => {
                     </Ul>
                 </FlexDivRight>
             </Nav>  
-)
+        )
 }

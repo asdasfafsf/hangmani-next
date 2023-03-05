@@ -29,7 +29,7 @@ const ViewerWrapper = styled.div`
     justify-content: center;
     min-width: 1070px;
     width: 100%;
-    transition: 0.2s;
+    transition: 0.3s;
     z-index: 5;
 `
 

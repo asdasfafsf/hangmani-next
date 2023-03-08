@@ -57,9 +57,17 @@ const Nav = styled.nav<NavProps>`
 `
 
 const FlexWrapper = styled.div`
-display: flex;
+    display: flex;
     max-width: 1200px;
     min-width: 1070px;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+`
+
+const FixedFlexWrapper = styled.div`
+    display: flex;
     width: 100%;
     height: 100%;
     align-items: center;
@@ -192,20 +200,21 @@ export default TopNavBar;
 export const FixedTopNavbar = () => {
     return (
             <Nav isMerge={false}>
-                <FlexDivLeft>
-                    <LogoWrapper>
-                        <Logo />
-                    </LogoWrapper>
-                    <Ul>
-                        <NoticeLi><Link href={"#"}>공지사항</Link></NoticeLi>
-                    </Ul>
-                </FlexDivLeft>
-                <FlexDivRight>
-                    <Ul>
-                        <Li><Link href={"#"}>로그인</Link></Li>
-                        <Li><Link href={"#"}>회원가입</Link></Li>
-                    </Ul>
-                </FlexDivRight>
+                <FixedFlexWrapper>
+                    <FlexDivLeft>
+                        <LogoWrapper>
+                            <Logo />
+                        </LogoWrapper>
+                        <Ul>
+                            <NoticeLi><Link href={"#"}>공지사항</Link></NoticeLi>
+                        </Ul>
+                    </FlexDivLeft>
+                    <FlexDivRight>
+                        <Ul>
+                            <Li><Link href={"#"}>시작하기</Link></Li>
+                        </Ul>
+                    </FlexDivRight>
+                </FixedFlexWrapper>
             </Nav>  
         )
 }

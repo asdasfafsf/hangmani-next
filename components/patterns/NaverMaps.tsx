@@ -16,7 +16,8 @@ const Wrapper = styled.div`
 
 const MapWrapper = styled.div`
     position: relative;
-    width: 1450px;
+    max-width: 1450px;
+    width: 100vw;;
     height: 860px;
 `
 

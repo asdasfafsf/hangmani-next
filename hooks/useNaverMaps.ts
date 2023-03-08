@@ -40,9 +40,8 @@ const useNaverMaps = () => {
             });
         }
 
-        if (naverMap === null) {
-            initialize();
-        }
+        initialize();
+        
     }, [])
 
     useEffect(() => {

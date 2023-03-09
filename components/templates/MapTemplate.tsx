@@ -1,6 +1,7 @@
 import useLottoTypeFilter from "@/hooks/useLottoTypeFilter";
 import useStoreSortFilter from "@/hooks/useStoreSortFilter";
 import styled from "@emotion/styled";
+import { createContext, useState } from "react";
 import StoreCard from "../atoms/StoreCard";
 import DistanceFilter from "../patterns/DistanceFilter";
 import FilterSelector from "../patterns/FilterSelector";
@@ -17,13 +18,14 @@ const Wrapper = styled.div`
     position: relative;
     display: flex;
     /* justify-contents: center; */
-    width: 100%;
+    width: 100vw;
     height: 100vh;
+    overflow: scroll;
 `
 
 const Section = styled.section`
     width: 100%;
-    max-width:1450px;
+    /* max-width:1450px; */
     display: flex;
     justify-content: center;
 `
@@ -43,65 +45,75 @@ const FilterSelectorWrap = styled.div`
     border: 1px solid lightgray;
     box-sizing: border-box;
 `
+export interface NaverMapWrap{
+    naverMap?: naver.maps.Map | null;
+    setNaverMap?: any;
+}
+export const NaverMapContext = createContext<NaverMapWrap>({});
 
 const MainTemplate = () => {
     const [lottoTypeFilter, handleClickLottoTypeFilter] = useLottoTypeFilter();
     const [storeSortFilter, handleClickStoreSortFilter] = useStoreSortFilter();
     
+    const [naverMap, setNaverMap] = useState<naver.maps.Map | null>(null);
+    
+
     return (
-        <Wrapper>
-            <Aside>
-                <FilterSelectorWrap>
-                    <FilterSelector 
-                        itemList={lottoTypeFilter}
-                        handleClickItem={handleClickLottoTypeFilter}
+        <NaverMapContext.Provider value={{naverMap, setNaverMap}}>
+            <Wrapper>
+                <Aside>
+                    <FilterSelectorWrap>
+                        <FilterSelector 
+                            itemList={lottoTypeFilter}
+                            handleClickItem={handleClickLottoTypeFilter}
+                        />
+                        <FilterSelector 
+                            itemList={storeSortFilter}
+                            handleClickItem={handleClickStoreSortFilter}
+                        />
+                    </FilterSelectorWrap>
+                    <StoreCard 
+                        oneWinCount={10}
+                        twoWinCount={25}
+                        storeName={"나눔로또판매점"} 
+                        distance={"50m"} 
+                        storeAddr={"서울특별시 영등포구 영등포동가 10-13"} 
+                        lottoTypeList={['lotto6/45', 'speeto', 'speeto2000']} 
                     />
-                    <FilterSelector 
-                        itemList={storeSortFilter}
-                        handleClickItem={handleClickStoreSortFilter}
+                    <StoreCard 
+                        oneWinCount={10}
+                        twoWinCount={25}
+                        storeName={"나눔로또판매점"} 
+                        distance={"50m"} 
+                        storeAddr={"서울특별시 영등포구 영등포동가 10-13"} 
+                        lottoTypeList={['lotto6/45', 'speeto', 'speeto2000']} 
                     />
-                </FilterSelectorWrap>
-                <StoreCard 
-                    oneWinCount={10}
-                    twoWinCount={25}
-                    storeName={"나눔로또판매점"} 
-                    distance={"50m"} 
-                    storeAddr={"서울특별시 영등포구 영등포동가 10-13"} 
-                    lottoTypeList={['lotto6/45', 'speeto', 'speeto2000']} 
-                />
-                <StoreCard 
-                    oneWinCount={10}
-                    twoWinCount={25}
-                    storeName={"나눔로또판매점"} 
-                    distance={"50m"} 
-                    storeAddr={"서울특별시 영등포구 영등포동가 10-13"} 
-                    lottoTypeList={['lotto6/45', 'speeto', 'speeto2000']} 
-                />
-                <StoreCard 
-                    oneWinCount={10}
-                    twoWinCount={25}
-                    storeName={"나눔로또판매점"} 
-                    distance={"50m"} 
-                    storeAddr={"서울특별시 영등포구 영등포동가 10-13"} 
-                    lottoTypeList={['lotto6/45', 'speeto', 'speeto2000']} 
-                />
-                <StoreCard 
-                    oneWinCount={10}
-                    twoWinCount={25}
-                    storeName={"나눔로또판매점"} 
-                    distance={"50m"} 
-                    storeAddr={"서울특별시 영등포구 영등포동가 10-13"} 
-                    lottoTypeList={['lotto6/45', 'speeto', 'speeto2000']} 
-                />
-            </Aside>
-                
-            <Section>
-                <SectionWrap>
-                    <DistanceFilter />
-                    <NaverMaps />
-                </SectionWrap>
-            </Section>
-        </Wrapper>
+                    <StoreCard 
+                        oneWinCount={10}
+                        twoWinCount={25}
+                        storeName={"나눔로또판매점"} 
+                        distance={"50m"} 
+                        storeAddr={"서울특별시 영등포구 영등포동가 10-13"} 
+                        lottoTypeList={['lotto6/45', 'speeto', 'speeto2000']} 
+                    />
+                    <StoreCard 
+                        oneWinCount={10}
+                        twoWinCount={25}
+                        storeName={"나눔로또판매점"} 
+                        distance={"50m"} 
+                        storeAddr={"서울특별시 영등포구 영등포동가 10-13"} 
+                        lottoTypeList={['lotto6/45', 'speeto', 'speeto2000']} 
+                    />
+                </Aside>
+                    
+                <Section>
+                    <SectionWrap>
+                        <DistanceFilter />
+                        <NaverMaps />
+                    </SectionWrap>
+                </Section>
+            </Wrapper>
+        </ NaverMapContext.Provider>
     )
 }
 

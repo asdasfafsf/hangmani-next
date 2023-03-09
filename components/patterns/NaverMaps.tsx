@@ -1,10 +1,11 @@
 import useCurrentGeo from "@/hooks/useCurrentGeo";
 import useNaverMaps from "@/hooks/useNaverMaps";
 import styled from "@emotion/styled";
-import { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import SquareButton from "../atoms/SquareButton";
+import { transpileJSXToHTML } from "@/lib/utils";
 
-
+import { NaverMapContext } from "../templates/MapTemplate";
 
 
 const Wrapper = styled.div`
@@ -19,6 +20,7 @@ const MapWrapper = styled.div`
     max-width: 1450px;
     width: 100vw;;
     height: 860px;
+    z-index: 6;
 `
 
 const Map = styled.div`
@@ -27,7 +29,7 @@ const Map = styled.div`
     height: 100%;
 
     * {
-        z-index: 5;
+        z-index: 7;
     }
 `
 
@@ -68,47 +70,35 @@ const NaverMaps = () => {
     const mapWrapElem = useRef(null);
 
     const [currentGeo, setCurrentGeo] = useCurrentGeo();
-    const [naverMap, setNaverMap] = useNaverMaps();
 
 
+    const { naverMap, setNaverMap } = useContext(NaverMapContext);
+    
     useEffect(() => {
         const { latitude, longitude } = currentGeo;        
         const createdNaverMap = new naver.maps.Map('map', {
             center: new naver.maps.LatLng(latitude, longitude),
-            zoom: 10
-        })
+            zoom: 10,
+            draggable: true
+        });
+        setNaverMap(createdNaverMap);
+        // const custom1 = new naver.maps.CustomControl(transpileJSXToHTML(CurrentLocateComponent), {
+        //     position: naver.maps.Position.TOP_LEFT
+        // });
 
-
-        if (!naverMap) {
-            setTimeout(() => {
-                setNaverMap(createdNaverMap)
-            }, 500)
-        }
+   
     },[])
+
 
 
 
 
     return (
         <>
-            <Wrapper>
             <MapWrapper ref={mapWrapElem}>
                 <Map id='map' ref={mapElem}>
                 </Map>
-                <CurrentLocateWrapper>
-                현 위치 : 경기 성남시 분당구 야탑동
-                </CurrentLocateWrapper>
-                <ReloadWrapper>
-                    <SquareButton 
-                        width="130px"
-                        height="43px"
-                        color="#FF7044;"
-                        textColor="white"
-                        text="이 지역 재검색"
-                    />
-                </ReloadWrapper>
             </MapWrapper>
-            </Wrapper>
      
         </>
     )

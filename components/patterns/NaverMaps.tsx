@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 const MapWrapper = styled.div`
     position: relative;
     max-width: 1450px;
-    width: 100vw;;
+    width: 1450px;
     height: 860px;
     z-index: 6;
 `
@@ -79,14 +79,10 @@ const NaverMaps = () => {
         const createdNaverMap = new naver.maps.Map('map', {
             center: new naver.maps.LatLng(latitude, longitude),
             zoom: 10,
-            draggable: true
+            scrollWheel: false,
         });
         setNaverMap(createdNaverMap);
-        // const custom1 = new naver.maps.CustomControl(transpileJSXToHTML(CurrentLocateComponent), {
-        //     position: naver.maps.Position.TOP_LEFT
-        // });
 
-   
     },[])
 
 
@@ -98,6 +94,12 @@ const NaverMaps = () => {
             <MapWrapper ref={mapWrapElem}>
                 <Map id='map' ref={mapElem}>
                 </Map>
+                <CurrentLocateWrapper>현재 위치 : 서울시 노원구</CurrentLocateWrapper>
+                <ReloadWrapper>
+                    <SquareButton 
+                    
+                    />
+                </ReloadWrapper>
             </MapWrapper>
      
         </>

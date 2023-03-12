@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 const MapWrapper = styled.div`
     position: relative;
     max-width: 1450px;
-    width: 1450px;
+    /* width: 1450px; */
     height: 860px;
     z-index: 6;
 `
@@ -38,8 +38,8 @@ const ReloadWrapper = styled.div`
     position: absolute;
     width: 130px;
     height: 43px;
-    left: 1230px;
-    top: 60px;
+    right: 30px;
+    top: 30px;
     z-index: 5;
 `
 
@@ -57,7 +57,7 @@ const CurrentLocateWrapper = styled.div`
     width: 257px;
     height: 43px;
     left: 30px;
-    top: 60px;
+    top: 30px;
 
     background: #FFFFFF;
     border: 1px solid #D9D9D9;
@@ -70,9 +70,9 @@ const NaverMaps = () => {
     const mapWrapElem = useRef(null);
 
     const [currentGeo, setCurrentGeo] = useCurrentGeo();
-
-
     const { naverMap, setNaverMap } = useContext(NaverMapContext);
+
+
     
     useEffect(() => {
         const { latitude, longitude } = currentGeo;        
@@ -97,7 +97,11 @@ const NaverMaps = () => {
                 <CurrentLocateWrapper>현재 위치 : 서울시 노원구</CurrentLocateWrapper>
                 <ReloadWrapper>
                     <SquareButton 
-                    
+                        width="130px"
+                        height="43px"
+                        text={'이 지역 재검색'}
+                        textColor="white;"
+                        color="#FF7044"
                     />
                 </ReloadWrapper>
             </MapWrapper>

@@ -14,17 +14,19 @@ import NaverMaps from "../patterns/NaverMaps";
 
 
 const Wrapper = styled.div`
-    top: 100px;
+    padding-top: 150px;
     position: relative;
     display: flex;
-    /* justify-contents: center; */
+    justify-contents: center;
+    /* align-items: center; */
+    /* width: 100vw; */
     width: 100vw;
-    height: 100vh;
-    overflow: scroll;
+    min-height: 1080px;
+
 `
 
 const Section = styled.section`
-    width: 100%;
+    /* width: 100%; */
     /* max-width:1450px; */
     display: flex;
     justify-content: center;
